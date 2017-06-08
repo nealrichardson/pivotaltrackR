@@ -1,15 +1,15 @@
 VERSION = $(shell grep ^Version DESCRIPTION | sed s/Version:\ //)
 
 doc:
-	R --slave -e 'library(roxygen2); roxygenise()'
+	R --slave -e 'devtools::document()'
 	-git add --all man/*.Rd
 
 test:
 	R CMD INSTALL --install-tests .
-	R --slave -e 'Sys.setenv(NOT_CRAN="true"); library(testthat); setwd(file.path(.libPaths()[1], "pivotaltrackR", "tests")); system.time(test_check("pivotaltrackR", filter="${file}", reporter=ifelse(nchar("${r}"), "${r}", "summary")))'
+	R --slave -e 'Sys.setenv(NOT_CRAN="true"); library(httptest); setwd(file.path(.libPaths()[1], "pivotaltrackR", "tests")); system.time(test_check("pivotaltrackR", filter="${file}", reporter=ifelse(nchar("${r}"), "${r}", "summary")))'
 
 deps:
-	R --slave -e 'install.packages(c("codetools", "testthat", "devtools", "roxygen2", "knitr"), repo="http://cran.at.r-project.org", lib=ifelse(nchar(Sys.getenv("R_LIB")), Sys.getenv("R_LIB"), .libPaths()[1]))'
+	R --slave -e 'install.packages(c("codetools", "httptest", "devtools", "roxygen2", "knitr"), repo="http://cran.at.r-project.org", lib=ifelse(nchar(Sys.getenv("R_LIB")), Sys.getenv("R_LIB"), .libPaths()[1]))'
 
 build: doc
 	R CMD build .

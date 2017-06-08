@@ -18,6 +18,8 @@ License: MIT + file LICENSE
 Depends:
     R (>= 3.0.0)
 Imports:
+    curl,
+    httr
 Suggests:
     covr,
     httptest
