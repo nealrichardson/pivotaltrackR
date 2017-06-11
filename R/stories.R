@@ -1,7 +1,7 @@
 #' Get stories
-#' @param ... "Filter" terms to refine the query. See `https://www.pivotaltracker.com/help/articles/advanced_search/`
+#' @param ... "Filter" terms to refine the query. See \url{https://www.pivotaltracker.com/help/articles/advanced_search/}
 #' @param search A search string
-#' @param query List of query parameters. See `https://www.pivotaltracker.com/help/api/rest/v5#Stories`. Most are not valid when filter terms are used.
+#' @param query List of query parameters. See \url{https://www.pivotaltracker.com/help/api/rest/v5#Stories}. Most are not valid when filter terms are used.
 #' @return A list of Stories
 #' @export
 getStories <- function (..., search=NULL, query=list()) {
@@ -11,7 +11,9 @@ getStories <- function (..., search=NULL, query=list()) {
         ## https://www.pivotaltracker.com/help/faq#howcanasearchberefined
         query$filter <- buildFilter(filter, search)
     }
-    return(ptGET(pivotalURL("stories"), query=query))
+    resp <- paginatedGET(pivotalURL("stories"), query=query)
+    class(resp) <- "stories"
+    return(resp)
 }
 
 buildFilter <- function (terms, search=NULL) {
@@ -37,4 +39,29 @@ buildFilter <- function (terms, search=NULL) {
         f <- sub("^ ", "", paste(f, search))
     }
     return(f)
+}
+
+#' @export
+as.data.frame.stories <- function (x, row.names = NULL, optional = FALSE, ...) {
+    if (length(x) == 0) {
+        return(data.frame())
+    }
+    ## Some elements may be missing so identify them all
+    allnames <- unique(unlist(lapply(x, names)))
+    df <- do.call("rbind", lapply(x, function (story) {
+        story$owner_ids <- paste(lapply(story$owner_ids, function (i) i), collapse=", ")
+        story$labels <- paste(lapply(story$labels, "[[", i="name"), collapse=", ")
+        story[setdiff(allnames, names(story))] <- NA
+        return(as.data.frame(story[allnames], stringsAsFactors=FALSE))
+    }))
+    datevars <- intersect(names(df), c("created_at", "updated_at", "accepted_at"))
+    df[datevars] <- lapply(df[datevars], strptime, format="%Y-%m-%dT%H:%M:%OS", tz="UTC")
+    return(df)
+}
+
+#' @export
+"[.stories" <- function (x, i, ...) {
+    x <- NextMethod()
+    class(x) <- "stories"
+    return(x)
 }

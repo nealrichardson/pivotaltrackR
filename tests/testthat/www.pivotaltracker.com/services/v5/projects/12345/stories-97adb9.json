@@ -1,0 +1,62 @@
+{"pagination": {"limit":3, "offset":3, "total":5},
+    "data":[{
+    "kind": "story",
+    "id": 989,
+    "created_at": "2017-06-08T22:53:48Z",
+    "updated_at": "2017-06-08T23:57:35Z",
+    "accepted_at": "2017-06-08T23:51:51Z",
+    "deadline": "2017-06-08T22:53:48Z",
+    "story_type": "release",
+    "name": "rel-3.9.16",
+    "current_state": "accepted",
+    "requested_by_id": 940,
+    "url": "https://www.pivotaltracker.com/story/show/989",
+    "project_id": 12345,
+    "owner_ids": [681],
+    "labels": [{
+        "id": 454,
+        "project_id": 12345,
+        "kind": "label",
+        "name": "deployed",
+        "created_at": "2015-11-17T21:45:09Z",
+        "updated_at": "2015-11-17T21:45:09Z"
+    }, {
+        "id": 41,
+        "project_id": 12345,
+        "kind": "label",
+        "name": "passed",
+        "created_at": "2016-06-22T18:34:11Z",
+        "updated_at": "2016-06-22T18:34:11Z"
+    }],
+    "owned_by_id": 681
+}, {
+    "kind": "story",
+    "id": 169,
+    "created_at": "2017-06-08T15:54:01Z",
+    "updated_at": "2017-06-08T15:55:59Z",
+    "estimate": 2,
+    "story_type": "feature",
+    "name": "Update swarmy to create docker thing",
+    "description": "The CentOS slaves need to have a thing available for Docker containers.",
+    "current_state": "started",
+    "requested_by_id": 681,
+    "url": "https://www.pivotaltracker.com/story/show/169",
+    "project_id": 12345,
+    "owner_ids": [681],
+    "labels": [{
+        "id": 693,
+        "project_id": 12345,
+        "kind": "label",
+        "name": "centos",
+        "created_at": "2017-04-25T18:22:25Z",
+        "updated_at": "2017-04-25T18:22:25Z"
+    }, {
+        "id": 300,
+        "project_id": 12345,
+        "kind": "label",
+        "name": "jenkins",
+        "created_at": "2015-02-18T22:21:31Z",
+        "updated_at": "2015-02-18T22:21:31Z"
+    }],
+    "owned_by_id": 681
+}]}

@@ -41,8 +41,43 @@ without_internet({
     })
 })
 
-# with_mock_API({
-#     test_that()
-# })
+public({
+    with_mock_API({
+        test_that("The stories response and as.data.frame", {
+            s <- getStories(search="mnt")
+            expect_length(s, 4)
+            df <- as.data.frame(s)
+            expect_identical(dim(df), c(4L, 13L))
+            expect_identical(names(df),
+                c("kind", "id", "created_at", "updated_at", "story_type",
+                  "name", "description", "current_state", "requested_by_id",
+                  "url", "project_id", "owner_ids", "labels"))
+            expect_identical(df$story_type,
+                c("chore", "feature", "feature", "bug"))
+            expect_is(df$created_at, "POSIXt")
+        })
 
+        test_that("Extract method for stories", {
+            s <- getStories(search="mnt")
+            expect_length(s, 4)
+            expect_length(s[2:3], 2)
+        })
+
+        test_that("Bad request error handling", {
+            expect_error(getStories(created="-5days..now"),
+                "The date you requested could not be parsed")
+        })
+
+        test_that("as.data.frame when getStories returns 0 stories", {
+            s <- getStories(label="NOT A LABEL")
+            expect_length(s, 0)
+            expect_is(as.data.frame(s), "data.frame")
+        })
+
+        test_that("getStories when there is pagination", {
+            s <- getStories(label="really common label")
+            expect_length(s, 5)
+        })
+    })
+})
 # print(str(getStories(state="accepted", accepted="-2days..today")))

@@ -1,0 +1,86 @@
+{"pagination": {"limit":3, "offset":0, "total":5},
+    "data":[{
+    "kind": "story",
+    "id": 397,
+    "created_at": "2017-06-08T03:02:12Z",
+    "updated_at": "2017-06-08T03:57:14Z",
+    "accepted_at": "2017-06-08T03:57:14Z",
+    "deadline": "2017-06-08T03:02:12Z",
+    "story_type": "release",
+    "name": "rel-3.9.14",
+    "current_state": "accepted",
+    "requested_by_id": 940,
+    "url": "https://www.pivotaltracker.com/story/show/397",
+    "project_id": 12345,
+    "owner_ids": [660],
+    "labels": [{
+        "id": 41,
+        "project_id": 12345,
+        "kind": "label",
+        "name": "passed",
+        "created_at": "2016-06-22T18:34:11Z",
+        "updated_at": "2016-06-22T18:34:11Z"
+    }],
+    "owned_by_id": 1773660
+}, {
+    "kind": "story",
+    "id": 907,
+    "created_at": "2017-06-08T13:58:39Z",
+    "updated_at": "2017-06-08T18:38:01Z",
+    "accepted_at": "2017-06-08T14:49:51Z",
+    "deadline": "2017-06-08T13:58:39Z",
+    "story_type": "release",
+    "name": "rel-3.9.15",
+    "current_state": "accepted",
+    "requested_by_id": 940,
+    "url": "https://www.pivotaltracker.com/story/show/907",
+    "project_id": 12345,
+    "owner_ids": [47],
+    "labels": [{
+        "id": 454,
+        "project_id": 12345,
+        "kind": "label",
+        "name": "deployed",
+        "created_at": "2015-11-17T21:45:09Z",
+        "updated_at": "2015-11-17T21:45:09Z"
+    }, {
+        "id": 41,
+        "project_id": 12345,
+        "kind": "label",
+        "name": "passed",
+        "created_at": "2016-06-22T18:34:11Z",
+        "updated_at": "2016-06-22T18:34:11Z"
+    }],
+    "owned_by_id": 2913047
+}, {
+    "kind": "story",
+    "id": 991,
+    "created_at": "2017-06-08T20:44:25Z",
+    "updated_at": "2017-06-08T23:58:59Z",
+    "accepted_at": "2017-06-08T23:50:18Z",
+    "estimate": 1,
+    "story_type": "feature",
+    "name": "Redesign module to return an interface",
+    "description": "The prod env has revealed a race condition.",
+    "current_state": "accepted",
+    "requested_by_id": 660,
+    "url": "https://www.pivotaltracker.com/story/show/991",
+    "project_id": 12345,
+    "owner_ids": [660],
+    "labels": [{
+        "id": 937,
+        "project_id": 12345,
+        "kind": "label",
+        "name": "rel-3.9.16",
+        "created_at": "2017-06-08T21:23:53Z",
+        "updated_at": "2017-06-08T21:23:53Z"
+    }, {
+        "id": 401,
+        "project_id": 12345,
+        "kind": "label",
+        "name": "reviewed",
+        "created_at": "2016-12-01T02:14:53Z",
+        "updated_at": "2016-12-01T02:14:53Z"
+    }],
+    "owned_by_id": 660
+}]}
