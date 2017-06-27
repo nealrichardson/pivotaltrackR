@@ -46,7 +46,7 @@ paginatedGET <- function (url, query=list(), ...) {
     resp <- ptGET(url, query=query, ...)
     out <- resp$data
     ## Handle pagination
-    if ("pagination" %in% names(resp)) {
+    if ("pagination" %in% names(resp) && !is.null(resp$pagination$total)) {
         requested <- resp$pagination$limit + resp$pagination$offset
         while (requested < resp$pagination$total) {
             query$offset <- requested
