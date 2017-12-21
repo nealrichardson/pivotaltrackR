@@ -53,7 +53,7 @@ structure(list(url = "https://www.pivotaltracker.com/services/v5/projects/12345/
         method = "GET", url = "https://www.pivotaltracker.com/services/v5/projects/12345/stories?filter=created%3A-5days..now",
         headers = structure(c("application/json, text/xml, application/xml, */*",
         "libcurl/7.51.0 curl/2.3 httr/1.2.1 pivotaltrackR/0.1.0",
-        "secrettoken"), .Names = c("Accept",
+        "REDACTED"), .Names = c("Accept",
         "user-agent", "X-TrackerToken")), fields = NULL, options = structure(list(
             useragent = "libcurl/7.51.0 r-curl/2.3 httr/1.2.1",
             httpget = TRUE), .Names = c("useragent", "httpget"
