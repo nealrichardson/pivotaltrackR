@@ -19,6 +19,7 @@ Imports:
     httr
 Suggests:
     covr,
-    httptest
+    httptest,
+    magrittr
 RoxygenNote: 6.0.0
 Roxygen: list(markdown = TRUE)

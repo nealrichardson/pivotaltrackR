@@ -5,7 +5,3 @@ options(
     pivotal.project=12345,
     pivotal.token="rekcarTlatoviP"
 )
-
-public({
-    source("helper-setup.R")
-})
