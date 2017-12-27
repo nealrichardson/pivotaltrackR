@@ -7,11 +7,11 @@
 getStories(..., search = NULL, query = list())
 }
 \arguments{
-\item{...}{"Filter" terms to refine the query. See \code{https://www.pivotaltracker.com/help/articles/advanced_search/}}
+\item{...}{"Filter" terms to refine the query. See \url{https://www.pivotaltracker.com/help/articles/advanced_search/}}
 
 \item{search}{A search string}
 
-\item{query}{List of query parameters. See \code{https://www.pivotaltracker.com/help/api/rest/v5#Stories}. Most are not valid when filter terms are used.}
+\item{query}{List of query parameters. See \url{https://www.pivotaltracker.com/help/api/rest/v5#Stories}. Most are not valid when filter terms are used.}
 }
 \value{
 A list of Stories
