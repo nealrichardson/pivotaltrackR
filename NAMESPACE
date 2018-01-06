@@ -2,7 +2,11 @@
 
 S3method("[",stories)
 S3method(as.data.frame,stories)
+export(createStory)
+export(deleteStory)
+export(editStory)
 export(getStories)
+export(getStory)
 importFrom(curl,curl_version)
 importFrom(httr,GET)
 importFrom(httr,add_headers)

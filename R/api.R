@@ -1,13 +1,13 @@
 apiRoot <- "https://www.pivotaltracker.com/services/v5"
 
-pivotalURL <- function (segment, project=getPivotalProject()) {
-    file.path(apiRoot, "projects", project, segment)
+pivotalURL <- function (..., project=getPivotalProject()) {
+    paste(apiRoot, "projects", project, ..., sep="/")
 }
 
 getPivotalProject <- function () {
     p <- getOption("pivotal.project")
     if (is.null(p)) {
-        stop("No PivotalTracker project ID set. Provide it with 'options(pivotal.project=YOURID)'")
+        halt("No PivotalTracker project ID set. Provide it with 'options(pivotal.project=YOURID)'")
     }
     return(p)
 }
@@ -21,7 +21,8 @@ ptAPI <- function (verb, url, config=list(), ...) {
 
 #' @importFrom httr http_status
 handlePTResponse <- function (resp) {
-    if (resp$status_code >= 400L)  {
+    status <- resp$status_code
+    if (status >= 400L)  {
         msg <- http_status(resp)$message
         msg2 <- try(content(resp), silent=TRUE)
         if (!inherits(msg2, "try-error")) {
@@ -30,15 +31,28 @@ handlePTResponse <- function (resp) {
             }
             msg <- paste(msg, msg2, sep=":\n")
         }
-        stop(msg, call.=FALSE)
+        halt(msg)
+    } else if (status == 204) {
+        return(NULL)
     } else {
         return(content(resp))
     }
 }
 
-
 ptGET <- function (url, ...) {
     ptAPI("GET", url, ...)
+}
+
+ptPOST <- function (url, ...) {
+    ptAPI("POST", url, encode="json", ...)
+}
+
+ptPUT <- function (url, ...) {
+    ptAPI("PUT", url, encode="json", ...)
+}
+
+ptDELETE <- function (url, ...) {
+    ptAPI("DELETE", url, ...)
 }
 
 paginatedGET <- function (url, query=list(), ...) {
