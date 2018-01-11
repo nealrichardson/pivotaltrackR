@@ -17,6 +17,8 @@ Imports:
 Suggests:
     covr,
     httptest (>= 2.3.5),
+    knitr,
     magrittr
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE)
+VignetteBuilder: knitr
