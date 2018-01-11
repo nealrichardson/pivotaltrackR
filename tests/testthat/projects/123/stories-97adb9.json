@@ -11,18 +11,18 @@
     "current_state": "accepted",
     "requested_by_id": 940,
     "url": "https://www.pivotaltracker.com/story/show/989",
-    "project_id": 12345,
+    "project_id": 123,
     "owner_ids": [681],
     "labels": [{
         "id": 454,
-        "project_id": 12345,
+        "project_id": 123,
         "kind": "label",
         "name": "deployed",
         "created_at": "2015-11-17T21:45:09Z",
         "updated_at": "2015-11-17T21:45:09Z"
     }, {
         "id": 41,
-        "project_id": 12345,
+        "project_id": 123,
         "kind": "label",
         "name": "passed",
         "created_at": "2016-06-22T18:34:11Z",
@@ -41,18 +41,18 @@
     "current_state": "started",
     "requested_by_id": 681,
     "url": "https://www.pivotaltracker.com/story/show/169",
-    "project_id": 12345,
+    "project_id": 123,
     "owner_ids": [681],
     "labels": [{
         "id": 693,
-        "project_id": 12345,
+        "project_id": 123,
         "kind": "label",
         "name": "centos",
         "created_at": "2017-04-25T18:22:25Z",
         "updated_at": "2017-04-25T18:22:25Z"
     }, {
         "id": 300,
-        "project_id": 12345,
+        "project_id": 123,
         "kind": "label",
         "name": "jenkins",
         "created_at": "2015-02-18T22:21:31Z",

@@ -2,7 +2,9 @@
 #'
 #' @param story An id string or URL to a Story
 #' @param ... Story attributes to either `createStory` or `editStory`. See a
-#' list of valid attributes at \url{https://www.pivotaltracker.com/help/api/rest/v5#projects_project_id_stories_post}.
+#' list of valid attributes at
+#' \url{https://www.pivotaltracker.com/help/api/rest/v5#projects_project_id_stories_post}.
+#' `name` is required on creation; all other fields are optional.
 #' @return `deleteStory` returns nothing, while the other functions all return
 #' a story object list: either the requested story (`getStory`), the newly
 #' created story (`createStory`), or the current state of the modified story
@@ -50,7 +52,7 @@ editStory <- function (story, ...) {
 #' @rdname story
 #' @export
 deleteStory <- function (story) {
-    return(ptDELETE(storyURL(story)))
+    invisible(ptDELETE(storyURL(story)))
 }
 
 as.story <- function (x) structure(x, class="story")

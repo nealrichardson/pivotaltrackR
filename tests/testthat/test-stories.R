@@ -26,18 +26,18 @@ without_internet({
     test_that("A valid request is made, with the right headers", {
         expect_header(
             expect_GET(getStories(),
-                "https://www.pivotaltracker.com/services/v5/projects/12345/stories"),
+                "https://www.pivotaltracker.com/services/v5/projects/123/stories"),
             "X-TrackerToken: rekcarTlatoviP")
         expect_header(
             expect_GET(getStories(state="finished"),
-                "https://www.pivotaltracker.com/services/v5/projects/12345/stories?filter=state%3Afinished"),
+                "https://www.pivotaltracker.com/services/v5/projects/123/stories?filter=state%3Afinished"),
             "pivotaltrackR") # user-agent
     })
     test_that("Search term is passed through", {
         expect_GET(getStories(search="foo"),
-            "https://www.pivotaltracker.com/services/v5/projects/12345/stories?filter=foo")
+            "https://www.pivotaltracker.com/services/v5/projects/123/stories?filter=foo")
         expect_GET(getStories(state="finished", search="foo"),
-            "https://www.pivotaltracker.com/services/v5/projects/12345/stories?filter=state%3Afinished%20foo")
+            "https://www.pivotaltracker.com/services/v5/projects/123/stories?filter=state%3Afinished%20foo")
     })
 })
 

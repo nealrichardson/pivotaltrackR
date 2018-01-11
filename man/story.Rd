@@ -20,7 +20,9 @@ deleteStory(story)
 \item{story}{An id string or URL to a Story}
 
 \item{...}{Story attributes to either \code{createStory} or \code{editStory}. See a
-list of valid attributes at \url{https://www.pivotaltracker.com/help/api/rest/v5#projects_project_id_stories_post}.}
+list of valid attributes at
+\url{https://www.pivotaltracker.com/help/api/rest/v5#projects_project_id_stories_post}.
+\code{name} is required on creation; all other fields are optional.}
 }
 \value{
 \code{deleteStory} returns nothing, while the other functions all return

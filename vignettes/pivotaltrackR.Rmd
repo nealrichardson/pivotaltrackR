@@ -1,0 +1,104 @@
+---
+title: "Viewing and Managing Pivotal Tracker Stories"
+description: "An overview of using 'pivotaltrackR' to communicate with the Pivotal Tracker API."
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Viewing and Managing Pivotal Tracker Stories}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include=FALSE}
+library(httptest)
+library(magrittr)
+start_vignette("stories")
+```
+
+[Pivotal Tracker](https://www.pivotaltracker.com) is a project management software-as-a-service that provides a [REST API](https://www.pivotaltracker.com/help/api/rest/v5). `pivotaltrackR` provides an R interface to that API, allowing you to query it and work with its responses. This vignette offers a quick-start guide to working with Stories, the issues that Pivotal Tracker helps you track.
+
+## Setup
+
+You'll need two settings to start working with Pivotal Tracker in R. First, you'll need the project ID, which you can find in the URL you see in the web browser when you're using the Pivotal Tracker web app, such as `https://www.pivotaltracker.com/n/projects/995640`.
+
+```{r}
+options(pivotal.project=995640)
+```
+
+Second, unless you're looking at a public project, you'll need an [API token](https://www.pivotaltracker.com/help/articles/api_token/), which you can get at the bottom of your [Profile](https://www.pivotaltracker.com/profile) page.
+
+```r
+options(pivotal.token="REDACTED")
+```
+
+Set these options in your current R session like this, or put that in your `.Rprofile` for use in every session.
+
+## Querying Stories
+
+Let's get started. First, load the package.
+
+```{r}
+library(pivotaltrackR)
+```
+
+```{r}
+bugs <- getStories(story_type="bug")
+bugs
+```
+
+Note that getStories handles pagination for you, so if you make a search that has lots of results, it will return them all, even if it needs multiple API requests to do it.
+
+```{r, echo=FALSE}
+change_state()
+```
+
+## Creating stories
+
+Let's say that I need to report a bug.
+
+```{r}
+new_bug <- createStory(
+    name="Flux capacitor hangs at 0.9 gigawatts",
+    description="Everything seems fine up to then but then it gets stuck. Please investigate and fix.",
+    story_type="bug"
+)
+```
+
+```{r, include=FALSE}
+Sys.sleep(1) ## So that Pivotal's API can catch up with us!
+```
+
+
+```{r}
+getStories(story_type="bug")
+```
+
+```{r, echo=FALSE}
+change_state()
+```
+
+## Modifying stories
+
+Time to start working on this bug.
+
+```{r}
+new_bug <- editStory(new_bug, current_state="started")
+getStories(story_type="bug")
+```
+
+```{r, echo=FALSE}
+change_state()
+```
+
+## Deleting stories
+
+Oops! Turns out that this new bug report is a duplicate of one of the stories we already had. Let's delete it.
+
+```{r}
+deleteStory(new_bug)
+getStories(story_type="bug")
+```
+
+```{r, echo=FALSE}
+end_vignette()
+.mockPaths(NULL)
+```

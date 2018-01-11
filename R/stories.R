@@ -60,6 +60,11 @@ as.data.frame.stories <- function (x, row.names = NULL, optional = FALSE, ...) {
 }
 
 #' @export
+print.stories <- function (x, ...) {
+    print(as.data.frame(x)[, c("kind", "id", "name", "current_state")])
+}
+
+#' @export
 "[.stories" <- function (x, i, ...) {
     x <- NextMethod()
     class(x) <- "stories"

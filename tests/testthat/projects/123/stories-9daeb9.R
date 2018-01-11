@@ -1,4 +1,4 @@
-structure(list(url = "https://www.pivotaltracker.com/services/v5/projects/12345/stories?filter=created%3A-5days..now",
+structure(list(url = "https://www.pivotaltracker.com/services/v5/projects/123/stories?filter=created%3A-5days..now",
     status_code = 400L, headers = structure(list(`access-control-allow-credentials` = "false",
         `access-control-allow-headers` = "X-TrackerToken,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Tracker-Warn-Unless-Project-Version-Is",
         `access-control-allow-methods` = "GET, POST, PUT, DELETE, OPTIONS",
@@ -50,7 +50,7 @@ structure(list(url = "https://www.pivotaltracker.com/services/v5/projects/12345/
     ), tzone = "GMT"), times = structure(c(0, 4.2e-05, 4.4e-05,
     0.000103, 0.084149, 0.084214), .Names = c("redirect", "namelookup",
     "connect", "pretransfer", "starttransfer", "total")), request = structure(list(
-        method = "GET", url = "https://www.pivotaltracker.com/services/v5/projects/12345/stories?filter=created%3A-5days..now",
+        method = "GET", url = "https://www.pivotaltracker.com/services/v5/projects/123/stories?filter=created%3A-5days..now",
         headers = structure(c("application/json, text/xml, application/xml, */*",
         "libcurl/7.51.0 curl/2.3 httr/1.2.1 pivotaltrackR/0.1.0",
         "REDACTED"), .Names = c("Accept",

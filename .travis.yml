@@ -1,5 +1,6 @@
 language: r
 cache: packages
+r_github_packages: nealrichardson/httptest
 r:
   - oldrel
   - release

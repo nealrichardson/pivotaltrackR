@@ -2,6 +2,7 @@
 
 S3method("[",stories)
 S3method(as.data.frame,stories)
+S3method(print,stories)
 export(createStory)
 export(deleteStory)
 export(editStory)

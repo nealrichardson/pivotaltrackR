@@ -1,15 +1,15 @@
 context("Story CRUD API")
 
 test_that("storyURL", {
-    expected <- "https://www.pivotaltracker.com/services/v5/projects/12345/stories/90210234/"
+    expected <- "https://www.pivotaltracker.com/services/v5/projects/123/stories/90210234/"
     expect_identical(storyURL(90210234), expected)
     expect_identical(storyURL("90210234"), expected)
     expect_identical(storyURL(expected), expected)
     expect_identical(storyURL(as.story(list(id=90210234))), expected)
     expect_error(storyURL("abc"), "Invalid story: abc")
     expect_error(storyURL(NULL), "Invalid story: object of class NULL")
-    expect_error(storyURL("https://www.pivotaltracker.com/services/v5/projects/12345/stories/"))
-    expect_error(storyURL("https://www.pivotaltracker.com/services/v5/projects/12345/stories/90210234/labels/"))
+    expect_error(storyURL("https://www.pivotaltracker.com/services/v5/projects/123/stories/"))
+    expect_error(storyURL("https://www.pivotaltracker.com/services/v5/projects/123/stories/90210234/labels/"))
 })
 
 with_mock_API({
