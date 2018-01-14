@@ -13,7 +13,8 @@ Depends:
     R (>= 3.0.0)
 Imports:
     curl,
-    httr
+    httr,
+    utils
 Suggests:
     covr,
     httptest (>= 2.3.5),

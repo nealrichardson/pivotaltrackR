@@ -40,20 +40,26 @@ Let's get started. First, load the package.
 library(pivotaltrackR)
 ```
 
+"Stories" are the primary objects that you work with in Pivotal Tracker. They're the issues---features, bugs, and chores---that you track. They have a life cycle, in which they are created, may linger in the "icebox" waiting to be scheduled to the "backlog", and once started, go through some stages before they are finally "accepted" as done.
+
+The Pivotal API lets you query your project's stories freely. The easiest way is to use the same searching interface you use in the web application. There are lots of different fields to filter on and ways to select certain stories; these are covered at length on the [API documentation](https://www.pivotaltracker.com/help/articles/advanced_search/).
+
+Let's find all of the open bug reports in our project.
+
 ```{r}
 bugs <- getStories(story_type="bug")
 bugs
 ```
 
-Note that getStories handles pagination for you, so if you make a search that has lots of results, it will return them all, even if it needs multiple API requests to do it.
-
-```{r, echo=FALSE}
-change_state()
-```
+Hooray, only two bugs! However, note that if you made a search that did have lots of results, `getStories()` handles the API's pagination for you. It will return all search matches, even if it needs multiple API requests to do it. You don't need to worry with the details of the API for that.
 
 ## Creating stories
 
-Let's say that I need to report a bug.
+Let's say that I need to report a bug. Call `createStory()` and give it some details.
+
+```{r, include=FALSE}
+change_state()
+```
 
 ```{r}
 new_bug <- createStory(
@@ -61,44 +67,51 @@ new_bug <- createStory(
     description="Everything seems fine up to then but then it gets stuck. Please investigate and fix.",
     story_type="bug"
 )
+new_bug
 ```
 
 ```{r, include=FALSE}
 Sys.sleep(1) ## So that Pivotal's API can catch up with us!
 ```
 
+See the [API docs](https://www.pivotaltracker.com/help/api/rest/v5#projects_project_id_stories_post) for a list of all valid fields you can provide. `name` is the only required field.
+
+Now when we query our bugs again, we see our newly reported one added to the list.
 
 ```{r}
 getStories(story_type="bug")
 ```
 
-```{r, echo=FALSE}
-change_state()
-```
-
 ## Modifying stories
 
-Time to start working on this bug.
+Time to get cracking on this bug. Let's mark it as started:
+
+```{r, include=FALSE}
+change_state()
+```
 
 ```{r}
 new_bug <- editStory(new_bug, current_state="started")
 getStories(story_type="bug")
 ```
 
-```{r, echo=FALSE}
-change_state()
-```
+As we see, the change is reflected in our story search, and in fact our bug has moved up in the order. Started issues always are listed above unstarted ones, which themselves are ahead of unscheduled ones.
 
 ## Deleting stories
 
 Oops! Turns out that this new bug report is a duplicate of one of the stories we already had. Let's delete it.
+
+```{r, include=FALSE}
+change_state()
+```
 
 ```{r}
 deleteStory(new_bug)
 getStories(story_type="bug")
 ```
 
-```{r, echo=FALSE}
+Now our bug is no longer in the list.
+
+```{r, include=FALSE}
 end_vignette()
-.mockPaths(NULL)
 ```

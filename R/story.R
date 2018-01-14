@@ -58,3 +58,7 @@ deleteStory <- function (story) {
 as.story <- function (x) structure(x, class="story")
 
 is.story <- function (x) inherits(x, "story")
+
+#' @export
+#' @importFrom utils str
+print.story <- function (x, ...) print(str(x))

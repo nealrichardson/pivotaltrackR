@@ -43,8 +43,8 @@ without_internet({
 
 public({
     with_mock_API({
+        s <- getStories(search="mnt")
         test_that("The stories response and as.data.frame", {
-            s <- getStories(search="mnt")
             expect_length(s, 4)
             df <- as.data.frame(s)
             expect_identical(dim(df), c(4L, 13L))
@@ -55,6 +55,11 @@ public({
             expect_identical(df$story_type,
                 c("chore", "feature", "feature", "bug"))
             expect_is(df$created_at, "POSIXt")
+        })
+
+        test_that("stories print method", {
+            ## TODO: something less lame!
+            expect_output(print(s))
         })
 
         test_that("Extract method for stories", {
