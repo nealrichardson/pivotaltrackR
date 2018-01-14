@@ -1,6 +1,6 @@
 Package: pivotaltrackR
 Type: Package
-Title: An R Client for the 'PivotalTracker' API
+Title: An R Client for the 'Pivotal Tracker' API
 Description: 'Pivotal Tracker' is a project management software-as-a-service that
     provides a REST API. This package provides an R interface to that API,
     allowing you to query it and work with its responses.
@@ -19,7 +19,9 @@ Suggests:
     covr,
     httptest (>= 2.3.5),
     knitr,
-    magrittr
+    magrittr,
+    spelling
+Language: en-US
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
