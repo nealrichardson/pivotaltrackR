@@ -6,7 +6,7 @@ Description: 'Pivotal Tracker' is a project management software-as-a-service tha
     allowing you to query it and work with its responses.
 Version: 0.1.0
 Authors@R: person("Neal", "Richardson", role=c("aut", "cre"), email="neal.p.richardson@gmail.com")
-URL: https://github.com/nealrichardson/pivotaltrackR
+URL: http://enpiar.com/r/pivotaltrackR, https://github.com/nealrichardson/pivotaltrackR
 BugReports: https://github.com/nealrichardson/pivotaltrackR/issues
 License: MIT + file LICENSE
 Depends:

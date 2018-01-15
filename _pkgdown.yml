@@ -1,0 +1,25 @@
+url: http://enpiar.com/r/pivotaltrackR
+template:
+  params:
+    ganalytics: UA-104182925-1
+navbar:
+  title: pivotaltrackR
+  type: default
+  left:
+  - text: Get Started
+    href: articles/pivotaltrackR.html
+  - text: Reference
+    href: reference/index.html
+  - text: News
+    href: news/index.html
+  right:
+  - icon: fa-github fa-lg
+    href: https://github.com/nealrichardson/pivotaltrackR
+  - icon: fa-home fa-lg
+    href: http://enpiar.com
+reference:
+- title: All functions
+  desc: ~
+  contents:
+  - '`getStories`'
+  - '`story`'

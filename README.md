@@ -4,36 +4,46 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/87n5pncwov3jyfab/branch/master?svg=true)](https://ci.appveyor.com/project/nealrichardson/pivotaltrackr/branch/master)
 [![cran](https://www.r-pkg.org/badges/version-last-release/pivotaltrackR)](https://cran.r-project.org/package=pivotaltrackR)
 
-[Pivotal Tracker](https://www.pivotaltracker.com/) is a tool for project management. This package lets you communicate with its API from R. The package is very much a work in progress, and not many API endpoints are yet supported, but more are coming. If you find this useful and want to see more, make an issue or (even better!) a pull request.
+[Pivotal Tracker](https://www.pivotaltracker.com/) is a tool for project management. This package lets you communicate with its [API](https://www.pivotaltracker.com/help/api/rest/v5) from R.
+
+While the basic methods for working with "stories", the main object of interest in Pivotal Tracker, are implemented, the package is very much a work in progress. If you find this useful and want to see more, please make an issue or (even better!) a pull request.
 
 ## Installing
 
-<!-- If you're putting `pivotaltrackR` on CRAN, it can be installed with
+Install the package from CRAN with
 
-    install.packages("pivotaltrackR") -->
+```r
+install.packages("pivotaltrackR")
+```
 
 The pre-release version of the package can be pulled from GitHub using the [devtools](https://github.com/hadley/devtools) package:
 
-    # install.packages("devtools")
-    devtools::install_github("nealrichardson/pivotaltrackR")
+```r
+devtools::install_github("nealrichardson/pivotaltrackR")
+```
 
 ## Getting started
 
-To access the Pivotal Tracker API, you'll need to get an API token, and then you'll need to provide the token and your project ID as "options". Set them in your current session with
+To access the Pivotal Tracker API, you'll need to get an [API token](https://www.pivotaltracker.com/help/articles/api_token/), and then you'll need to provide the token and your project ID as "options". Set them in your current session with
 
-    options(pivotal.token="SOMEBIGLONGHASH", pivotal.project="12345")
+```r
+options(pivotal.token="REDACTED", pivotal.project=12345)
+```
 
 or put that in your `.Rprofile` for use in every session.
 
+See `vignette("pivotaltrackR")` for an overview.
+
 ### Endpoints supported
 
-* `getStories`: GET [Stories](https://www.pivotaltracker.com/help/api/rest/v5#Stories)
+* [Stories](https://www.pivotaltracker.com/help/api/rest/v5#Stories): `getStories()` (GET), `createStory()` (POST)
+* [Story](https://www.pivotaltracker.com/help/api/rest/v5#Story): `getStory()` (GET), `editStory()` (PUT), and `deleteStory()` (DELETE)
 
 [Pagination](https://www.pivotaltracker.com/help/api#Paginating_List_Responses) of large responses is handled automatically: no need to make special requests to fetch all.
 
 ## For developers
 
-The repository includes a Makefile to facilitate some common tasks.
+The repository includes a Makefile to facilitate some common tasks, if you're into that sort of thing.
 
 ### Running tests
 

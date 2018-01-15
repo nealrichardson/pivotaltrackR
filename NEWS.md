@@ -1,3 +1,3 @@
 ## pivotaltrackR 0.1.0
 
-* Initial addition of functions and tests
+* Query Pivotal "Stories" with `getStories()`. To deal with individual stories, `createStory()`, `getStory()`, `editStory()`, and `deleteStory()`.

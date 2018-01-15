@@ -7,15 +7,22 @@
 getStories(..., search = NULL, query = list())
 }
 \arguments{
-\item{...}{"Filter" terms to refine the query. See \url{https://www.pivotaltracker.com/help/articles/advanced_search/}}
+\item{...}{"Filter" terms to refine the query. See \url{https://www.pivotaltracker.com/help/articles/advanced_search/}.
+This is how you search for stories in the Pivotal Tracker web app.}
 
 \item{search}{A search string}
 
 \item{query}{List of query parameters. See \url{https://www.pivotaltracker.com/help/api/rest/v5#Stories}. Most are not valid when filter terms are used.}
 }
 \value{
-A list of Stories
+A 'stories' object: a list of all stories matching the search.
 }
 \description{
 Get stories
+}
+\examples{
+\dontrun{
+getStories(story_type="bug", current_state="unstarted",
+    search="deep learning")
+}
 }

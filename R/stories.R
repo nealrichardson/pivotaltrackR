@@ -1,8 +1,14 @@
 #' Get stories
-#' @param ... "Filter" terms to refine the query. See \url{https://www.pivotaltracker.com/help/articles/advanced_search/}
+#' @param ... "Filter" terms to refine the query. See \url{https://www.pivotaltracker.com/help/articles/advanced_search/}.
+#' This is how you search for stories in the Pivotal Tracker web app.
 #' @param search A search string
 #' @param query List of query parameters. See \url{https://www.pivotaltracker.com/help/api/rest/v5#Stories}. Most are not valid when filter terms are used.
-#' @return A list of Stories
+#' @return A 'stories' object: a list of all stories matching the search.
+#' @examples
+#' \dontrun{
+#' getStories(story_type="bug", current_state="unstarted",
+#'     search="deep learning")
+#' }
 #' @export
 getStories <- function (..., search=NULL, query=list()) {
     filter <- list(...)

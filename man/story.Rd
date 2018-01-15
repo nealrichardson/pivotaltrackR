@@ -26,10 +26,21 @@ list of valid attributes at
 }
 \value{
 \code{deleteStory} returns nothing, while the other functions all return
-a story object list: either the requested story (\code{getStory}), the newly
+a 'story' object: either the requested story (\code{getStory}), the newly
 created story (\code{createStory}), or the current state of the modified story
 \code{editStory}.
 }
 \description{
 Create, read, update, and delete a story
+}
+\examples{
+\dontrun{
+new_bug <- createStory(
+    name="Flux capacitor hangs at 0.9 gigawatts",
+    description="Please investigate and fix.",
+    story_type="bug"
+)
+new_bug <- editStory(new_bug, current_state="started")
+deleteStory(new_bug)
+}
 }

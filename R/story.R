@@ -6,10 +6,20 @@
 #' \url{https://www.pivotaltracker.com/help/api/rest/v5#projects_project_id_stories_post}.
 #' `name` is required on creation; all other fields are optional.
 #' @return `deleteStory` returns nothing, while the other functions all return
-#' a story object list: either the requested story (`getStory`), the newly
+#' a 'story' object: either the requested story (`getStory`), the newly
 #' created story (`createStory`), or the current state of the modified story
 #' `editStory`.
 #' @name story
+#' @examples
+#' \dontrun{
+#' new_bug <- createStory(
+#'     name="Flux capacitor hangs at 0.9 gigawatts",
+#'     description="Please investigate and fix.",
+#'     story_type="bug"
+#' )
+#' new_bug <- editStory(new_bug, current_state="started")
+#' deleteStory(new_bug)
+#' }
 #' @export
 getStory <- function (story) {
     return(as.story(ptGET(storyURL(story))))
