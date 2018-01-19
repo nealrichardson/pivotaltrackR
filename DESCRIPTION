@@ -17,7 +17,7 @@ Imports:
     utils
 Suggests:
     covr,
-    httptest (>= 2.3.5),
+    httptest (>= 3.0.0),
     knitr,
     magrittr,
     spelling
