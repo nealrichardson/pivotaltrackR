@@ -1,9 +1,10 @@
 Package: pivotaltrackR
 Type: Package
-Title: An R Client for the 'Pivotal Tracker' API
-Description: 'Pivotal Tracker' is a project management software-as-a-service that
-    provides a REST API. This package provides an R interface to that API,
-    allowing you to query it and work with its responses.
+Title: A Client for the 'Pivotal Tracker' API
+Description: 'Pivotal Tracker' <https://www.pivotaltracker.com> is a project
+    management software-as-a-service that provides a REST API. This package
+    provides an R interface to that API, allowing you to query it and work with
+    its responses.
 Version: 0.1.0
 Authors@R: person("Neal", "Richardson", role=c("aut", "cre"), email="neal.p.richardson@gmail.com")
 URL: http://enpiar.com/r/pivotaltrackR, https://github.com/nealrichardson/pivotaltrackR
