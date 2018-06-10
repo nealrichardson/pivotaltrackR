@@ -11,6 +11,7 @@
 #' }
 #' @export
 getStories <- function (..., search=NULL, query=list()) {
+    ## TODO: move search to first arg so unnamed search is supported
     filter <- list(...)
     if (length(filter) || !is.null(search)) {
         ## Use "filter" list() for searching stories:
@@ -67,7 +68,15 @@ as.data.frame.stories <- function (x, row.names = NULL, optional = FALSE, ...) {
 
 #' @export
 print.stories <- function (x, ...) {
-    print(as.data.frame(x)[, c("kind", "id", "name", "current_state")])
+    ## TODO: handle length 0 case
+    out <- as.data.frame(x)[, c("kind", "id", "name", "current_state")]
+    ## Truncate "name", allowing width for row index + kind + id + current_state
+    ## (and a space between each)
+    other_cols <- nchar(nrow(out)) + max(nchar(out$kind)) + 9 + 13 + 5
+    max_name <- getOption("width") - other_cols
+    too_wide <- nchar(out$name) > max_name
+    out$name[too_wide] <- paste0(substr(out$name[too_wide], 1, max_name - 3), "...")
+    print(out)
 }
 
 #' @export
