@@ -50,13 +50,13 @@ storyURL <- function (story) {
 #' @rdname story
 #' @export
 createStory <- function (...) {
-    return(as.story(ptPOST(pivotalURL("stories"), body=list(...))))
+    invisible(as.story(ptPOST(pivotalURL("stories"), body=list(...))))
 }
 
 #' @rdname story
 #' @export
 editStory <- function (story, ...) {
-    return(as.story(ptPUT(storyURL(story), body=list(...))))
+    invisible(as.story(ptPUT(storyURL(story), body=list(...))))
 }
 
 #' @rdname story

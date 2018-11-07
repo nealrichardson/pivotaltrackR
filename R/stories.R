@@ -85,3 +85,10 @@ print.stories <- function (x, ...) {
     class(x) <- "stories"
     return(x)
 }
+
+#' @export
+"[[.stories" <- function (x, i, ...) {
+    x <- NextMethod()
+    class(x) <- "story"
+    return(x)
+}

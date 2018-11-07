@@ -5,7 +5,7 @@ Description: 'Pivotal Tracker' <https://www.pivotaltracker.com> is a project
     management software-as-a-service that provides a REST API. This package
     provides an R interface to that API, allowing you to query it and work with
     its responses.
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: person("Neal", "Richardson", role=c("aut", "cre"), email="neal.p.richardson@gmail.com")
 URL: http://enpiar.com/r/pivotaltrackR, https://github.com/nealrichardson/pivotaltrackR
 BugReports: https://github.com/nealrichardson/pivotaltrackR/issues
@@ -23,6 +23,6 @@ Suggests:
     magrittr,
     spelling
 Language: en-US
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
