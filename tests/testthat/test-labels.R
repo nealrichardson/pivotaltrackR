@@ -1,7 +1,7 @@
 context("Story labels")
 
 public({
-    with_mock_API({
+    with_mock_api({
         nolabels <- createStory(name="A test story", story_type="chore")
         twolabels <- getStories(label="really common label")[[4]]
 

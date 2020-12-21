@@ -1,4 +1,4 @@
-url: http://enpiar.com/r/pivotaltrackR
+url: https://enpiar.com/r/pivotaltrackR
 template:
   params:
     ganalytics: UA-104182925-1
@@ -16,10 +16,12 @@ navbar:
   - icon: fa-github fa-lg
     href: https://github.com/nealrichardson/pivotaltrackR
   - icon: fa-home fa-lg
-    href: http://enpiar.com
+    href: https://enpiar.com/
 reference:
 - title: All functions
   desc: ~
   contents:
   - getStories
   - story
+  - labels
+  - addLabel

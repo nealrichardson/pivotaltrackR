@@ -16,10 +16,10 @@ Install the package from CRAN with
 install.packages("pivotaltrackR")
 ```
 
-The pre-release version of the package can be pulled from GitHub using the [devtools](https://github.com/hadley/devtools) package:
+The pre-release version of the package can be pulled from GitHub using the [remotes](https://remotes.r-lib.org/) package:
 
 ```r
-devtools::install_github("nealrichardson/pivotaltrackR")
+remotes::install_github("nealrichardson/pivotaltrackR")
 ```
 
 ## Getting started
@@ -51,4 +51,4 @@ The repository includes a Makefile to facilitate some common tasks, if you're in
 
 ### Updating documentation
 
-`$ make doc`. Requires the [roxygen2](https://github.com/klutometis/roxygen) package.
+`$ make doc`. Requires the [roxygen2](https://github.com/r-lib/roxygen2) package.

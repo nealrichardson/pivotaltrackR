@@ -1,6 +1,6 @@
 context("API wrapping")
 
-with_mock_API({
+with_mock_api({
     test_that("Handling when pivotal.project is not set", {
         old <- options(pivotal.project=NULL)
         on.exit(do.call(options, old))

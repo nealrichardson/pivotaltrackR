@@ -42,7 +42,7 @@ without_internet({
 })
 
 public({
-    with_mock_API({
+    with_mock_api({
         s <- getStories(search="mnt")
         test_that("The stories response and as.data.frame", {
             expect_length(s, 4)
