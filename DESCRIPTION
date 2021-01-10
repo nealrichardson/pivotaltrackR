@@ -17,10 +17,10 @@ Imports:
     httr,
     utils
 Suggests:
-    covr,
     httptest (>= 3.0.0),
     knitr,
     magrittr,
+    rmarkdown,
     spelling
 Language: en-US
 Encoding: UTF-8
