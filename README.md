@@ -1,6 +1,6 @@
 # pivotaltrackR: An R Client for the Pivotal Tracker API
 
-[![Build Status](https://travis-ci.org/nealrichardson/pivotaltrackR.png?branch=master)](https://travis-ci.org/nealrichardson/pivotaltrackR)  [![codecov](https://codecov.io/gh/nealrichardson/pivotaltrackR/branch/master/graph/badge.svg)](https://codecov.io/gh/nealrichardson/pivotaltrackR)
+[![codecov](https://codecov.io/gh/nealrichardson/pivotaltrackR/branch/master/graph/badge.svg)](https://codecov.io/gh/nealrichardson/pivotaltrackR)
 [![Build status](https://ci.appveyor.com/api/projects/status/87n5pncwov3jyfab/branch/master?svg=true)](https://ci.appveyor.com/project/nealrichardson/pivotaltrackr/branch/master)
 [![cran](https://www.r-pkg.org/badges/version-last-release/pivotaltrackR)](https://cran.r-project.org/package=pivotaltrackR)
 
